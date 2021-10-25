@@ -61,7 +61,7 @@ static struct SyncPrefs prefs = {0, 0, NULL, 0, DEFAULT_PORT, NULL, NULL};
 static SOCKET doConnect(char* host, char* alias, int port);
 static int parseData(SOCKET fd, char* alias, time_t ts, int* rowCount);
 static struct Data* parseRow(char* row);
-static int sendRequest(SOCKET fd, long ts, char* host, int port);
+static int sendRequest(SOCKET fd, time_t ts, char* host, int port);
 static time_t getMaxTsForHost(char* alias);
 
 static int syncWithHost(char* host, char* alias, int port){
