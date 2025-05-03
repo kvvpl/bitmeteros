@@ -72,7 +72,7 @@
 #endif
 
 #if defined(__linux__) || defined(__APPLE__)
-	int runCmd(const char *args[]){
+	int runCmd(char *args[]){
 		if (geteuid() == 0) {
 			int pid = fork();
 			int status;
