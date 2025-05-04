@@ -72,6 +72,7 @@
 #endif
 
 #if defined(__linux__) || defined(__APPLE__)
+        #include <sys/wait.h>
 	int runCmd(const char *args[]){
 		if (geteuid() == 0) {
 			int pid = fork();
