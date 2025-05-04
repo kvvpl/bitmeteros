@@ -72,13 +72,13 @@
 #endif
 
 #if defined(__linux__) || defined(__APPLE__)
-	int runCmd(char *args[]){
+	int runCmd(const char *args[]){
 		if (geteuid() == 0) {
 			int pid = fork();
 			int status;
 
 			if (pid == 0){
-				execvp(args[0], args);
+				execvp(args[0], (char * const *)args);
 				_exit(1);
 				return SUCCESS; // TODO correct?
 				
