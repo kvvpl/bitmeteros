@@ -149,7 +149,7 @@ static void readDbConfig(){
 }
 
 int isLocalConnection(SOCKET socket){
-	struct sockaddr_in sa;
+	struct sockaddr sa;
 	int sa_len = sizeof(sa);
 	if (getsockname(socket, &sa, &sa_len) == -1) {
 		logMsg(LOG_ERR, "getsockname() returned an error: %s", strerror(errno));
