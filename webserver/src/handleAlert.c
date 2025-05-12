@@ -31,6 +31,8 @@
 #include <stdio.h>
 #include <assert.h>
 #include <malloc.h>
+#include <string.h>
+#include <stdlib.h>
 #include "client.h"
 #include "bmws.h"
 #include "common.h"
@@ -227,8 +229,9 @@ void processAlertStatus(SOCKET fd, struct NameValuePair* params){
 
 static struct DateCriteria* makeSingleDateCriteriaFromTxt(char* txt){
  // txt looks like: ['*','*','1','3','4-5']
- 	char* txtCopy = strdupa(txt);
-
+ 	char* txtCopy = strdup(txt);
+        assert(txtCopy);
+	
 	char *yearTxt = strtok(txtCopy, DELIMS);
 	strtok(NULL, DELIMS); // comma
 
@@ -244,7 +247,7 @@ static struct DateCriteria* makeSingleDateCriteriaFromTxt(char* txt){
 	char *hourTxt = strtok(NULL, DELIMS);
 
 	assert(strtok(NULL, DELIMS) == NULL);
-
+        free(txtCopy);
 	return makeDateCriteria(yearTxt, monthTxt, dayTxt, weekdayTxt, hourTxt);
 }
 
