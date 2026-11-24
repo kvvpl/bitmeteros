@@ -38,7 +38,7 @@
 Contains the code that handles monitor requests made via the bmclient utility.
 */
 
-static void sigIntHandler();
+static void sigIntHandler(int signum);
 static int stopNow = FALSE;
 extern struct Prefs prefs;
 static void printBar(BW_INT dl, BW_INT ul);
@@ -147,6 +147,6 @@ static void printText(BW_INT dl, BW_INT ul){
 	printf("DL: %llu UL: %llu\n", dl, ul);
 }
 
-static void sigIntHandler(){
+static void sigIntHandler(int signum){
 	stopNow = TRUE;
 }
