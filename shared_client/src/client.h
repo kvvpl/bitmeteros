@@ -69,7 +69,7 @@ struct Summary getSummaryValues();
 void freeSummary(struct Summary* summary);
 struct ValueBounds* calcTsBounds(char* hs, char* ad);
 struct Data* calcMaxValues();
-struct Data* getQueryValues();
+struct Data* getQueryValues(time_t tsFrom, time_t tsTo, int group, char* hs, char* ad);
 struct Data* getSyncValues(int ts);
 void getDumpValues(int, void (*callback)(int, struct Data*));
 struct HostAdapter* getHostAdapter(char* hostAndAdapterTxt);
