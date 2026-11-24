@@ -38,7 +38,7 @@ Contains the code that handles summary requests made via the bmclient utility.
 */
 
 extern struct Prefs prefs;
-static void printSummary();
+static void printSummary(struct Summary summary);
 struct ValueBounds tsBounds;
 
 void doSummary(){
