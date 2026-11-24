@@ -30,7 +30,7 @@
 /*
 Displays some pieces of version information which might be useful.
 */
-int doVersion(){
+int doVersion(FILE* file, int argc, char** argv){
 	printf(
 		"App Version:    %s\n"
 		"DB Version:     %d\n"
