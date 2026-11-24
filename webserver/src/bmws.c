@@ -39,7 +39,7 @@
 #define CONNECTION_BACKLOG 10
 #define LOCAL_ONLY htonl(0x7f000001L)
 
-static void sigHandler();
+static void sigHandler(int signum);
 static int allowRemoteConnect, allowRemoteAdmin;
 static int isLocalConnection(SOCKET socket);
 
@@ -207,7 +207,7 @@ int main(){
     return 0;
 }
 
-static void sigHandler(){
+static void sigHandler(int signum){
  // Shut down the listener and stop
 	close(listener);
 	exit(0);
