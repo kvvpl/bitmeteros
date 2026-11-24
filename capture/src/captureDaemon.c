@@ -32,7 +32,7 @@ Contains the entry point for the data capture application, when run as an unmana
 */
 
 static int stopNow = FALSE;
-static void sigHandler();
+static void sigHandler(int signum);
 
 int main(int argc, char **argv){
 	#ifdef _WIN32
@@ -65,6 +65,6 @@ int main(int argc, char **argv){
 	return 0;
 }
 
-static void sigHandler(){
+static void sigHandler(int signum){
 	stopNow = TRUE;
 }
