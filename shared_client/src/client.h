@@ -65,7 +65,7 @@ struct HostAdapter{
 };
 
 struct Data* getMonitorValues(int ts, char* hs, char* ad);
-struct Summary getSummaryValues();
+struct Summary getSummaryValues(char* hs, char* ad);
 void freeSummary(struct Summary* summary);
 struct ValueBounds* calcTsBounds(char* hs, char* ad);
 struct Data* calcMaxValues();
