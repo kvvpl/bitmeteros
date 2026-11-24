@@ -32,7 +32,7 @@
 
 #define MAX_UPGRADE_LEVEL 7
 
-int doVersion();
+int doVersion(FILE* file, int argc, char** argv);
 int convertAddrValues();
 int doListConfig(FILE* file, int argc, char** argv);
 int doSetConfig(FILE* file, int argc, char** argv);
