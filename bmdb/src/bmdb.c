@@ -37,13 +37,13 @@ on the BitMeterOS database.
 */
 
 static struct Action* getActionForName(char* name);
-static int doVacuum();
+static int doVacuum(FILE* file, int argc, char** argv);
 static int dumpActions();
 static int doWebRemote(FILE* file, int argc, char** argv);
 static int doWebRemoteAdmin(FILE* file, int argc, char** argv);
 static int doWebLocal(FILE* file, int argc, char** argv);
-static int doHelp();
-static int doPurge();
+static int doHelp(FILE* file, int argc, char** argv);
+static int doPurge(FILE* file, int argc, char** argv);
 
 // This struct represents an action that can be performed by this utility
 struct Action{
@@ -117,7 +117,7 @@ static struct Action* getActionForName(char* name){
 	return namedAction;
 }
 
-static int doPurge(){
+static int doPurge(FILE* file, int argc, char** argv){
  // Deletes all bandwidth data from the database
     printf("This action will delete ALL BitMeter data, and cannot be undone.\nAre you sure you want to proceed? (Enter Y/N): ");
     
@@ -137,7 +137,7 @@ static int doPurge(){
 	return status;
 }
 
-static int doVacuum(){
+static int doVacuum(FILE* file, int argc, char** argv){
  // Frees any unused space occupied by the database file
     printf("Vacuuming database...\n");
 	int status = executeSql("VACUUM", NULL);
@@ -182,7 +182,7 @@ static int doWebRemoteAdmin(FILE* file, int argc, char** argv){
 }
 
 extern char* helpTxt;
-static int doHelp(){
+static int doHelp(FILE* file, int argc, char** argv){
 	printf(helpTxt);
 	return SUCCESS;
 }
